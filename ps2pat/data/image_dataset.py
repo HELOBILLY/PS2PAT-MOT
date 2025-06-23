@@ -202,10 +202,10 @@ class ImageDataset(data.Dataset):
 
 if __name__ == "__main__":
 
-    from siammot.configs.defaults import cfg
-    from siammot.data.video_dataset import VideoDatasetBatchCollator
-    from siammot.data.adapters.utils.data_utils import load_dataset_anno
-    from siammot.data.adapters.augmentation.build_augmentation import build_siam_augmentation
+    from ps2pat.configs.defaults import cfg
+    from ps2pat.data.video_dataset import VideoDatasetBatchCollator
+    from ps2pat.data.adapters.utils.data_utils import load_dataset_anno
+    from ps2pat.data.adapters.augmentation.build_augmentation import build_siam_augmentation
 
     torch.manual_seed(0)
 

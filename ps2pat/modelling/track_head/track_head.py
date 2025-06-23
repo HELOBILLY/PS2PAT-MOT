@@ -2,7 +2,7 @@ import torch
 
 from maskrcnn_benchmark.structures.boxlist_ops import cat_boxlist
 
-from siammot.utils import registry
+from ps2pat.utils import registry
 
 
 class TrackHead(torch.nn.Module):
@@ -112,10 +112,9 @@ class TrackHead(torch.nn.Module):
 
 def build_track_head(cfg, track_utils, track_pool):
 
-    import siammot.modelling.track_head.EMM.track_core
-    import siammot.modelling.track_head.EMM.target_sampler
+    import ps2pat.modelling.track_head.EMM.track_core
+    import ps2pat.modelling.track_head.EMM.target_sampler
 
-    # registry.SIAMESE_TRACKER {'EMM': <class 'siammot.modelling.track_head.EMM.track_core.EMM'>}
     tracker = registry.SIAMESE_TRACKER[
         cfg.MODEL.TRACK_HEAD.MODEL
     ](cfg, track_utils)

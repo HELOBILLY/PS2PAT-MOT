@@ -12,12 +12,12 @@ from maskrcnn_benchmark.utils.comm import synchronize, get_rank
 from maskrcnn_benchmark.utils.logger import setup_logger
 from maskrcnn_benchmark.utils.miscellaneous import mkdir, save_config
 
-from siammot.configs.defaults import cfg
-from siammot.data.build_train_data_loader import build_train_data_loader
-from siammot.modelling.rcnn import build_siammot
-from siammot.engine.trainer import do_train
-from siammot.utils.get_model_name import get_model_name
-from siammot.engine.tensorboard_writer import TensorboardWriter
+from ps2pat.configs.defaults import cfg
+from ps2pat.data.build_train_data_loader import build_train_data_loader
+from ps2pat.modelling.rcnn import build_ps2pat
+from ps2pat.engine.trainer import do_train
+from ps2pat.utils.get_model_name import get_model_name
+from ps2pat.engine.tensorboard_writer import TensorboardWriter
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -27,7 +27,7 @@ except ImportError:
     raise ImportError('Use APEX for multi-precision via apex.amp')
 
 
-parser = argparse.ArgumentParser(description="PyTorch SiamMOT Training")
+parser = argparse.ArgumentParser(description="PyTorch PS2PAT Training")
 parser.add_argument("--config-file", default="", metavar="FILE", help="path to config file", type=str)
 parser.add_argument("--train-dir", default="", help="training folder where training artifacts are dumped", type=str)
 parser.add_argument("--model-suffix", default="", help="model suffix to differentiate different runs", type=str)
@@ -37,7 +37,7 @@ parser.add_argument("--local_rank", type=int, default=0)
 def train(cfg, train_dir, local_rank, distributed, logger):
 
     # build model
-    model = build_siammot(cfg)
+    model = build_ps2pat(cfg)
     device = torch.device(cfg.MODEL.DEVICE)
     model.to(device)
 
@@ -101,7 +101,7 @@ def setup_env_and_logger(args, cfg):
     if train_dir:
         mkdir(train_dir)
 
-    logger = setup_logger("siammot", train_dir, get_rank())
+    logger = setup_logger("ps2pat", train_dir, get_rank())
     logger.info("Using {} GPUs".format(num_gpus))
     logger.info(args)
 

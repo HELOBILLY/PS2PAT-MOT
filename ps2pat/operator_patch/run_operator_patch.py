@@ -4,12 +4,12 @@ import logging
 logger = logging.getLogger(__name__)
 
 try:
-    import siammot.operator_patch.rpn_patch
+    import ps2pat.operator_patch.rpn_patch
 except:
     logger.info("Error patching RPN operator")
 
 try:
-    import siammot.operator_patch.fpn_patch
+    import ps2pat.operator_patch.fpn_patch
 except:
     logger.info("Error patching FPN operator")
 

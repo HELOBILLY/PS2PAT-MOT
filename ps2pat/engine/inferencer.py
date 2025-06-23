@@ -179,7 +179,7 @@ class DatasetInference(object):
         # todo: enable the inference in an efficient distributed framework
         for (sample_id, sample) in tqdm(self._dataset):
             # clean up the memory
-            self._model.reset_siammot_status()
+            self._model.reset_ps2pat_status()
 
             # the dumped results are not postprocessed
             sample_result = self._inference_on_video(sample)

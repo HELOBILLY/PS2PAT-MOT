@@ -2,7 +2,7 @@ import numpy as np
 
 from gluoncv.torch.data.gluoncv_motion_dataset.dataset import AnnoEntity
 
-from siammot.utils.entity_utils import bbs_iou
+from ps2pat.utils.entity_utils import bbs_iou
 
 
 def build_data_filter_fn(dataset_key: str, *args, **kwargs):

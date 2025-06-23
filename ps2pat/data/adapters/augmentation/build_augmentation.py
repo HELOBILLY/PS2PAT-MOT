@@ -21,7 +21,6 @@ def build_siam_augmentation(cfg, is_train=True, modality='video'):
         hue = cfg.INPUT.HUE
 
         if modality == 'image':
-            print('is_train image********************')
             motion_limit = cfg.INPUT.MOTION_LIMIT
             motion_blur_prob = cfg.INPUT.MOTION_BLUR_PROB
             compression_limit = cfg.INPUT.COMPRESSION_LIMIT

@@ -5,12 +5,12 @@ from maskrcnn_benchmark.structures.bounding_box import BoxList
 from maskrcnn_benchmark.structures.boxlist_ops import cat_boxlist, boxlist_iou
 from maskrcnn_benchmark.modeling.matcher import Matcher
 
-from siammot.utils import registry
+from ps2pat.utils import registry
 
 
 class EMMTargetSampler(object):
     """
-    Sample track targets for SiamMOT.
+    Sample track targets for PS2PAT.
     It samples from track proposals from RPN
     """
     def __init__(self, track_utils, matcher, propsals_per_image=256,

@@ -173,7 +173,7 @@ class VideoDatasetBatchCollator(object):
 
 if __name__ == "__main__":
 
-    from siammot.data.adapters.utils.data_utils import load_dataset_anno
+    from ps2pat.data.adapters.utils.data_utils import load_dataset_anno
 
     torch.manual_seed(0)
 

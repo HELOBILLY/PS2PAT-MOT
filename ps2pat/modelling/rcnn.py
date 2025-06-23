@@ -1,9 +1,9 @@
 """
-Implements the Generalized R-CNN for SiamMOT
+Implements the Generalized R-CNN for PA2PAT
 """
 from torch import nn
 
-import siammot.operator_patch.run_operator_patch
+import ps2pat.operator_patch.run_operator_patch
 
 from maskrcnn_benchmark.structures.image_list import to_image_list
 from maskrcnn_benchmark.modeling.rpn.rpn import build_rpn
@@ -12,7 +12,7 @@ from .roi_heads import build_roi_heads
 from .backbone.backbone_ext import build_backbone
 
 
-class SiamMOT(nn.Module):
+class PS2PAT(nn.Module):
     """
     Main class for R-CNN. Currently supports boxes and tracks.
     It consists of three main parts:
@@ -23,7 +23,7 @@ class SiamMOT(nn.Module):
     """
 
     def __init__(self, cfg):
-        super(SiamMOT, self).__init__()
+        super(PS2PAT, self).__init__()
 
         self.backbone = build_backbone(cfg)
         self.rpn = build_rpn(cfg, self.backbone.out_channels)
@@ -34,7 +34,7 @@ class SiamMOT(nn.Module):
     def flush_memory(self, cache=None):
         self.track_memory = cache
 
-    def reset_siammot_status(self):
+    def reset_ps2pat_status(self):
         self.flush_memory()
         self.roi_heads.reset_roi_status()
 
@@ -71,6 +71,6 @@ class SiamMOT(nn.Module):
         return result
 
 
-def build_siammot(cfg):
-    siammot = SiamMOT(cfg)
-    return siammot
+def build_ps2pat(cfg):
+    pa2pat = PS2PAT(cfg)
+    return pa2pat

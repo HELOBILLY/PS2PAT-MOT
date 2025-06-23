@@ -4,14 +4,7 @@ from maskrcnn_benchmark.config import cfg
 
 # default detector config (Rewrite some of them in cfg)
 cfg.MODEL.META_ARCHITECTURE = 'GeneralizedRCNN'
-# "DLA-34-FPN": "dla34",
-# "DLA-102-FPN": "dla_102",
-# "DLA-169-FPN": "dla_169"
-# @registry.BACKBONES.register("R-50-FPN")
-# @registry.BACKBONES.register("R-101-FPN")
-# @registry.BACKBONES.register("R-152-FPN")
 cfg.MODEL.BACKBONE.CONV_BODY = 'DLA-34-FPN'
-# cfg.MODEL.BACKBONE.CONV_BODY = 'R-50-FPN'
 
 cfg.MODEL.RPN.USE_FPN = True
 cfg.MODEL.RPN.ANCHOR_STRIDE = (4, 8, 16, 32, 64)
@@ -42,12 +35,6 @@ cfg.MODEL.DLA.DLA_STAGE3_OUT_CHANNELS = 128
 cfg.MODEL.DLA.DLA_STAGE4_OUT_CHANNELS = 256
 cfg.MODEL.DLA.DLA_STAGE5_OUT_CHANNELS = 512
 
-## for DLA-102(dcn) and DLA-169(dcn)
-# cfg.MODEL.DLA.DLA_STAGE2_OUT_CHANNELS = 128
-# cfg.MODEL.DLA.DLA_STAGE3_OUT_CHANNELS = 256
-# cfg.MODEL.DLA.DLA_STAGE4_OUT_CHANNELS = 512
-# cfg.MODEL.DLA.DLA_STAGE5_OUT_CHANNELS = 1024
-
 cfg.MODEL.DLA.BACKBONE_OUT_CHANNELS = 128
 cfg.MODEL.DLA.STAGE_WITH_DCN = (False, False, False, False, False, False)
 
@@ -68,9 +55,6 @@ cfg.MODEL.TRACK_HEAD.MODEL = 'EMM'
 cfg.MODEL.TRACK_HEAD.TRACKLOSS = 'IOU'
 
 # solver params
-# track_thresh=0.25,
-# start_track_thresh=0.4,
-# resume_track_thresh=0.35,
 cfg.MODEL.TRACK_HEAD.TRACK_THRESH = 0.3
 cfg.MODEL.TRACK_HEAD.START_TRACK_THRESH = 0.6
 cfg.MODEL.TRACK_HEAD.RESUME_TRACK_THRESH = 0.4

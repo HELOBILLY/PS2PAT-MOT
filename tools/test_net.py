@@ -10,12 +10,12 @@ import warnings
 from maskrcnn_benchmark.utils.checkpoint import DetectronCheckpointer
 from maskrcnn_benchmark.utils.miscellaneous import mkdir
 
-from siammot.configs.defaults import cfg
-from siammot.modelling.rcnn import build_siammot
-from siammot.engine.inferencer import DatasetInference
-from siammot.utils.get_model_name import get_model_name
-from siammot.data.adapters.utils.data_utils import load_dataset_anno, load_public_detection
-from siammot.data.adapters.handler.data_filtering import build_data_filter_fn
+from ps2pat.configs.defaults import cfg
+from ps2pat.modelling.rcnn import build_ps2pat
+from ps2pat.engine.inferencer import DatasetInference
+from ps2pat.utils.get_model_name import get_model_name
+from ps2pat.data.adapters.utils.data_utils import load_dataset_anno, load_public_detection
+from ps2pat.data.adapters.handler.data_filtering import build_data_filter_fn
 
 try:
     from apex import amp
@@ -39,7 +39,7 @@ def test(cfg, args, output_dir):
     torch.cuda.empty_cache()
 
     # Construct model graph
-    model = build_siammot(cfg)
+    model = build_ps2pat(cfg)
     device = torch.device(cfg.MODEL.DEVICE)
     model.to(device)
 

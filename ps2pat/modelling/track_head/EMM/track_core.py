@@ -5,7 +5,7 @@ import torch.nn.functional as F
 from maskrcnn_benchmark.structures.bounding_box import BoxList
 from maskrcnn_benchmark.modeling.utils import cat
 
-from siammot.utils import registry
+from ps2pat.utils import registry
 from .xcorr import xcorr_depthwise
 from .feature_extractor import EMMFeatureExtractor, EMMPredictor
 from .track_loss import EMMLossComputation

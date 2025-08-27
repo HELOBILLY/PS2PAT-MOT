@@ -106,3 +106,7 @@ python3 tools/train_net.py --config-file configs/AIRMOT.yaml --train-dir my_trai
 ```
 python3 tools/test_net.py --config-file configs/dla/AIRMOT.yaml --output-dir datasets/AIRMOT/my_results --model-file my_train_results/AIRMOT/model_final.pth --test-dataset AIRMOT --set test
 ```
+
+### Download Links
+[Google Drive](https://drive.google.com/drive/folders/1fwylyu-JeJO66GIMTniQwxsGKJXmwjYh?usp=sharing)
+
